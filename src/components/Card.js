@@ -1,13 +1,17 @@
+import React, { forwardRef } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 
 // expanded state        -----  classes - each-flex-cell isExpanded=true, expanded
 // not expanded state    -----  classes- each-flex-cell isExpanded = false
 
-const Card = (props) => {
+export default forwardRef((props, ref) => {
+  //   console.log(ref);
   return (
     <div
+      ref={ref}
       onClick={() => {
         props.clickHandler(props.cardState);
+        console.log(ref.current);
       }}
       className={props.updatedClass}
     >
@@ -27,6 +31,4 @@ const Card = (props) => {
       </div> */}
     </div>
   );
-};
-
-export default Card;
+});
